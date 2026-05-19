@@ -1,0 +1,664 @@
+/* ==========================================================================
+   0. CONFIGURAÇÕES GERAIS E VARIÁVEIS
+   ========================================================================== */
+:root {
+    --primary-color: #0f2b46;    /* Azul Marinho Escuro */
+    --accent-color: #c5a059;     /* Dourado/Bronze corporativo */
+    --whatsapp-color: #25d366;   /* Verde oficial do WhatsApp */
+    --text-dark: #333333;        /* Cor do texto principal */
+    --text-light: #ffffff;       /* Cor de contraste */
+    --bg-light: #f9f9f9;         /* Cor de fundo cinza claro */
+    --font-base: 'Montserrat', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth; 
+}
+
+body {
+    font-family: var(--font-base);
+    color: var(--text-dark);
+    line-height: 1.6;
+    background-color: #ffffff;
+}
+
+.container {
+    width: 100%;
+    padding: 40px 20px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Títulos Globais */
+h2 {
+    font-size: 1.8rem;
+    text-align: center;
+    margin-bottom: 30px;
+    color: var(--primary-color);
+    position: relative;
+}
+
+/* Detalhe estético abaixo dos títulos h2 */
+h2::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 3px;
+    background-color: var(--accent-color);
+    margin: 10px auto 0 auto;
+}
+
+/* Botão Padrão */
+.btn-primary {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: var(--text-light);
+    padding: 12px 30px;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 4px;
+    transition: background 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #b08d4b;
+}
+
+/* ==========================================================================
+   1. CABEÇALHO / HEADER (BASE MOBILE)
+   ========================================================================== */
+.main-header {
+    background-color: var(--primary-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.header-container {
+    padding: 15px 20px;
+    display: flex;
+    flex-direction: column; /* Itens em coluna no mobile */
+    align-items: center;
+    gap: 10px;
+}
+
+.logo a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.logo a span {
+    color: var(--accent-color);
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+
+.main-nav a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.main-nav a:hover {
+    color: var(--accent-color);
+}
+
+/* ==========================================================================
+   2. SEÇÃO INICIAL / BANNER (HERO)
+   ========================================================================== */
+.hero-section {
+    position: relative;
+    /* Substitua a URL abaixo pela imagem do Banner real */
+    background: url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1200') no-repeat center center/cover;
+    height: 80vh; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--text-light);
+}
+
+/* Overlay escuro para garantir leitura do texto sobre o banner */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(15, 43, 70, 0.75); /* Tom azulado translúcido */
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 0 20px;
+    max-width: 600px;
+}
+
+.hero-content h1 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.hero-content p {
+    font-size: 1rem;
+    margin-bottom: 25px;
+}
+
+/* ==========================================================================
+   3. SEÇÃO QUEM SOU
+   ========================================================================== */
+.about-section {
+    background-color: #ffffff;
+}
+
+.about-img img {
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    margin: 0 auto 20px auto;
+}
+
+.about-text p {
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+/* ==========================================================================
+   4. SEÇÃO SERVIÇOS
+   ========================================================================== */
+.services-section {
+    background-color: var(--bg-light);
+}
+
+.services-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.service-card {
+    background-color: #ffffff;
+    padding: 30px 20px;
+    border-radius: 6px;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    border-top: 4px solid var(--primary-color);
+}
+
+.service-icon {
+    font-size: 2.5rem;
+    color: var(--accent-color);
+    margin-bottom: 15px;
+}
+
+.service-card h3 {
+    margin-bottom: 10px;
+    color: var(--primary-color);
+}
+
+/* ==========================================================================
+   5. SEÇÃO CTA WHATSAPP
+   ========================================================================== */
+.cta-section {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    text-align: center;
+}
+
+.cta-content h2 {
+    color: var(--text-light);
+}
+
+.cta-content p {
+    margin-bottom: 30px;
+    font-size: 1.1rem;
+}
+
+.btn-whatsapp {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background-color: var(--whatsapp-color);
+    color: var(--text-light);
+    padding: 15px 35px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1rem;
+    border-radius: 50px; /* Estilo pílula clássico do WhatsApp */
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.btn-whatsapp:hover {
+    background-color: #1ebd54;
+    transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   6. RODAPÉ (FOOTER)
+   ========================================================================== */
+
+   .main-footer {
+    background-color: #0a1d30;
+    color: #a0b2c6;
+    padding: 40px 0 20px 0; /* Mais espaçamento interno */
+    font-size: 0.9rem;
+    border-top: 3px solid var(--accent-color);
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column; /* Empilhado no Mobile */
+    align-items: center;
+    text-align: center;
+    gap: 30px; /* Espaço entre os blocos no mobile */
+}
+
+.footer-block {
+    width: 100%;
+}
+
+/* Bloco da Marca/Copyright */
+.footer-brand {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text-light);
+    margin-bottom: 5px;
+}
+.footer-brand span {
+    color: var(--accent-color);
+}
+
+/* Bloco de Contatos (E-mail e Telefone) */
+.footer-center p {
+    margin-bottom: 10px;
+}
+.footer-center a {
+    color: #a0b2c6;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: color 0.3s;
+}
+.footer-center a:hover {
+    color: var(--text-light);
+}
+.footer-center i {
+    color: var(--accent-color); /* Ícones com a cor de destaque */
+}
+
+/* Bloco de Redes Sociais */
+.footer-title {
+    font-weight: 600;
+    color: var(--text-light);
+    margin-bottom: 10px;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+.social-icons a {
+    color: #a0b2c6;
+    font-size: 1.4rem;
+    transition: color 0.3s, transform 0.3s;
+}
+.social-icons a:hover {
+    color: var(--accent-color);
+    transform: translateY(-2px);
+}
+
+/*.main-footer {
+    background-color: #0a1d30;
+    color: #a0b2c6;
+    padding: 20px 0;
+    font-size: 0.85rem;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Organização estrita exigida pelo projeto: Texto à esquerda e ícones à direita 
+.footer-left {
+    text-align: center;
+}
+
+.footer-right {
+    display: flex;
+    gap: 15px;
+}
+
+.footer-right a {
+    color: #a0b2c6;
+    font-size: 1.2rem;
+    transition: color 0.3s;
+}
+
+.footer-right a:hover {
+    color: var(--accent-color);
+}
+*/
+
+/* ==========================================================================
+   7. MEDIA QUERIES (ADAPTAÇÃO PARA TELAS MAIORES - DESKTOP-FIRST PROGRESSIVO)
+   ========================================================================== */
+
+/* Dispositivos Médios e Grandes (Tablets e Desktops) */
+@media screen and (min-width: 768px) {
+
+    /* Header alinhado horizontalmente */
+    .header-container {
+        flex-direction: row;
+        justify-content: space-between;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 15px 20px;
+    }
+
+    /* Redimensionamento responsivo de fontes no Banner */
+    .hero-content h1 {
+        font-size: 2.8rem;
+    }
+    
+    .hero-content p {
+        font-size: 1.2rem;
+    }
+
+    /* Grid Lado a Lado na seção Quem Sou */
+    .about-grid {
+        display: grid;
+        grid-template-columns: 1fr 1.2fr; /* Imagem esquerda, texto direita */
+        gap: 40px;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .about-img img {
+        margin: 0; /* Remove a centralização forçada do mobile */
+    }
+
+    .about-text p {
+        font-size: 1.05rem;
+    }
+
+    /* Grid de 3 colunas para os Serviços */
+    .services-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    /*.service-card {
+        flex: 1 1 calc(33.333% - 25px); 
+        max-width: 380px; 
+        margin-bottom: 0; 
+    }*/
+
+    /* Alinhamento refinado do Rodapé em telas grandes */
+    .footer-container {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .footer-left {
+        text-align: left;
+    }
+}
+
+/* ==========================================================================
+   8. ESTILOS DA PÁGINA INTERNA DE DETALHES (BASE MOBILE-FIRST)
+   ========================================================================== */
+
+/* Botão "Saber Mais" para a Home */
+.btn-secondary {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 8px 20px;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.85rem;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+}
+
+/* Banner Interno */
+.internal-hero {
+    background-color: #0b1e32;
+    color: var(--text-light);
+    text-align: center;
+    padding: 40px 0;
+    border-bottom: 4px solid var(--accent-color);
+}
+
+.internal-hero h1 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.internal-hero p {
+    font-size: 0.95rem;
+    color: #a0b2c6;
+}
+
+/* Listas customizadas */
+.styled-list, .bullet-list {
+    list-style: none;
+}
+
+.styled-list li {
+    margin-bottom: 12px;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.styled-list li i {
+    color: var(--accent-color);
+    margin-top: 5px;
+}
+
+.generic-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.details-purposes {
+    background-color: var(--bg-light);
+    padding: 25px;
+    border-left: 4px solid var(--accent-color);
+    border-radius: 4px;
+}
+
+.details-purposes h3 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+/* Diferenciais */
+.differentials-section {
+    background-color: var(--bg-light);
+}
+
+.differentials-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.diff-card {
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+
+.diff-card i {
+    font-size: 2rem;
+    color: var(--accent-color);
+    margin-bottom: 15px;
+}
+
+.diff-card h4 {
+    color: var(--primary-color);
+    margin-bottom: 8px;
+    font-size: 1.1rem;
+}
+
+/* Linha do tempo de Etapas */
+.steps-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    position: relative;
+}
+
+.step-item {
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+}
+
+.step-number {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    font-weight: 700;
+    min-width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.step-info h5 {
+    color: var(--primary-color);
+    font-size: 1rem;
+    margin-bottom: 5px;
+}
+
+/* Imóveis Atendidos */
+.section-subtitle {
+    text-align: center;
+    margin-top: -20px;
+    margin-bottom: 30px;
+    color: #666;
+}
+
+.bullet-list {
+    display: grid;
+    grid-template-columns: 1fr; /* Coluna única no mobile */
+    gap: 12px;
+}
+
+.bullet-list li {
+    padding-left: 20px;
+    position: relative;
+}
+
+/* Custom bullet indicator */
+.bullet-list li::before {
+    content: "•";
+    color: var(--accent-color);
+    font-weight: bold;
+    font-size: 1.5rem;
+    position: absolute;
+    left: 0;
+    top: -4px;
+}
+
+
+/* ==========================================================================
+   9. MEDIA QUERIES ADICIONAIS PARA INTERNAS (DESKTOP - MIN-WIDTH: 768px)
+   ========================================================================== */
+@media screen and (min-width: 768px) {
+    .internal-hero {
+        padding: 60px 0;
+    }
+    
+    .internal-hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .generic-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr; /* Lado a lado no desktop */
+        gap: 50px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    /* Grid de diferenciais 2x2 ou 4 colunas dependendo do espaço */
+    .differentials-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    /* Passa os Bullet Points de imóveis atendidos para 2 colunas */
+    .bullet-list {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    /* Etapas distribuídas de forma mais espaçada */
+    .steps-timeline {
+        max-width: 900px;
+        margin: 0 auto;
+    }
+}
+
+/* Ajuste fino para telas ainda maiores (Opcional) */
+@media screen and (min-width: 1024px) {
+    .differentials-grid {
+        grid-template-columns: repeat(4, 1fr); /* 4 colunas limpas em telas grandes */
+    }
+}
