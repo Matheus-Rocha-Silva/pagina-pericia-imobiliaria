@@ -93,6 +93,59 @@ h2::after {
     gap: 10px;
 }
 
+.logo a.logo-text {
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 1.15rem; /* Tamanho seguro para não quebrar no mobile */
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: opacity 0.3s ease;
+}
+
+.logo a.logo-text:hover {
+    opacity: 0.9;
+}
+
+/* O "Badge" que destaca a Engenharia/Perícia com sofisticação */
+.logo-badge {
+    /*background-color: var(--accent-color);*/
+    background-color: transparent;
+    color: var(--primary-color);
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-left: 5px;
+}
+
+/* Logotipo no Rodapé (Espaço maior permite o nome completo institucional) */
+.logo-text-footer {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--text-light);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    line-height: 1.2;
+}
+
+.logo-subtext-footer {
+    font-size: 0.8rem;
+    color: var(--accent-color);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+    margin-bottom: 15px; /* Empurra o copyright um pouco para baixo */
+}
+
+.footer-copyright {
+    font-size: 0.8rem;
+    color: #a0b2c6;
+}
+
 .logo a {
     color: var(--text-light);
     text-decoration: none;
@@ -245,7 +298,7 @@ h2::after {
     text-decoration: none;
     font-weight: 700;
     font-size: 1.1rem;
-    border-radius: 50px; /* Estilo pílula clássico do WhatsApp */
+    border-radius: 50px; 
     box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
     transition: transform 0.3s ease, background-color 0.3s ease;
 }
@@ -380,6 +433,16 @@ h2::after {
 
 /* Dispositivos Médios e Grandes (Tablets e Desktops) */
 @media screen and (min-width: 768px) {
+
+    .logo a.logo-text {
+        font-size: 1.4rem;
+        letter-spacing: 1px;
+    }
+    
+    .logo-badge {
+        font-size: 1.1rem;
+        /*padding: 4px 10px;*/
+    }
 
     /* Header alinhado horizontalmente */
     .header-container {
